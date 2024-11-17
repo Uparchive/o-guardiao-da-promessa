@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Guardião da Promessa - Anônimo</title>
+    <link rel="stylesheet" href="capastyle.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const lastReadChapter = localStorage.getItem(getStorageKey());
+            const continueButton = document.getElementById("continue-button");
+
+            if (lastReadChapter) {
+                continueButton.textContent = "Continuar Leitura";
+                continueButton.href = `${lastReadChapter}.html`;
+            } else {
+                continueButton.textContent = "Iniciar Leitura";
+                continueButton.href = "capitulo0.html";
+            }
+        });
+
+        function setLastRead(chapterId) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const storageKey = `${currentBook}_lastReadChapter`;
+            localStorage.setItem(storageKey, chapterId);
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <div class="container">
+        <a href="indice.html">
+            <img src="https://firebasestorage.googleapis.com/v0/b/armazene-acd30.appspot.com/o/uploads%2Fz0wQUWxFhKRBeMLIHIjOHd1dpHn2%2FO%20Guardi%C3%A3o%20Da%20Promessa.png?alt=media&token=ec945e7d-f20e-4542-973d-6801f6234439" alt="Capa do livro O Guardião da Promessa" class="book-cover">
+        </a>
+        <h1 class="book-title">O Guardião da Promessa</h1>
+        <h2 class="book-subtitle">"Ele será a luz sobre as nações"</h2>
+        <h3>(Isaías 42:6)</h3>
+        <p class="author-name">Anônimo</p>
+        <div class="buttons">
+            <a id="continue-button" href="#" class="button">Iniciar Leitura</a>
+        </div>
+    </div>
+</body>
+</html>

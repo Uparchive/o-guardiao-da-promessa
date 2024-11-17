@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 8</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo8" -->
+    <div class="container capitulo" id="capitulo8">
+        <h1 class="chapter-number">Capítulo 8</h1>
+        <h2 class="chapter-title">A Fonte da Esperança</h2>
+        <p>Depois de atravessar o vale sombrio, João avistou ao longe uma fonte cristalina que brotava entre as rochas. A água brilhava como se carregasse a luz do céu. Ele sentiu uma paz inexplicável ao se aproximar.</p>
+        <p>No centro da fonte, uma inscrição antiga estava gravada: <strong>"Eu sou a água viva; quem beber de mim jamais terá sede." (João 4:14)</strong>.</p>
+        <p>João se ajoelhou diante da fonte, sentindo que aquele era um lugar sagrado. Ele se lembrou das palavras de sua mãe: "Sempre que sentir que não pode continuar, clame ao Senhor, e Ele renovará suas forças."</p>
+        <p>Ele juntou as mãos em oração e disse: <em>"Senhor, estou cansado, mas confio que Tu és a minha força. Guia-me, pois sem Ti não sei para onde ir."</em></p>
+        <p>Enquanto orava, ele sentiu uma brisa suave tocar seu rosto, como se fosse uma resposta divina. Ele ouviu uma voz calma em seu coração: "Confia no Senhor de todo o teu coração e não te estribes no teu próprio entendimento. Reconhece-o em todos os teus caminhos, e Ele endireitará as tuas veredas." (Provérbios 3:5-6).</p>
+        <p>Com fé renovada, João se levantou e bebeu da fonte. A água era doce e refrescante, e ele sentiu sua energia retornar. Ele percebeu que sua jornada não era apenas física, mas também espiritual. Cada passo o aproximava mais de Deus e da promessa que deveria guardar.</p>
+        <p>Enquanto se preparava para seguir em frente, João fez uma última oração: <em>"Senhor, fortalece-me para o que está por vir e me dá sabedoria para cumprir o propósito que preparaste para mim."</em></p>
+        <p>Ele sabia que desafios maiores estavam à frente, mas agora ele tinha a certeza de que não estava sozinho. Deus estava com ele, guiando seus passos.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo7.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo9.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

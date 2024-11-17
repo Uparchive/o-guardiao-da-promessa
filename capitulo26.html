@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 26</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo26" -->
+    <div class="container capitulo" id="capitulo26">
+        <h1 class="chapter-number">Capítulo 26</h1>
+        <h2 class="chapter-title">O Chamado à Vigilância</h2>
+        <p>Ao descer da montanha, João encontrou uma planície coberta por uma névoa leve. No meio da planície, havia uma torre alta feita de pedra branca, com uma luz brilhante no topo.</p>
+        <p>Ele se aproximou da torre e viu uma inscrição em sua base: <strong>"Vigiai e orai, para que não entreis em tentação; o espírito, na verdade, está pronto, mas a carne é fraca." (Mateus 26:41)</strong>.</p>
+        <p>João percebeu que era chamado a subir a torre. Enquanto subia os degraus em espiral, sentiu um peso crescente em seu coração. Ele se lembrou de momentos em sua vida em que havia relaxado em sua vigilância espiritual e caído em armadilhas que o afastaram de Deus.</p>
+        <p>Quando chegou ao topo, a vista era deslumbrante. Ele podia ver a vastidão da jornada que havia percorrido e os desafios que ainda estavam à frente. A luz da torre iluminava o caminho, mas também revelava sombras ao longe.</p>
+        <p>Uma voz ecoou ao seu redor: "João, você foi chamado para ser vigilante. O inimigo trabalha no silêncio e nas sombras, mas aqueles que permanecem em oração e confiança no Senhor não serão abalados."</p>
+        <p>João orou: <em>"Senhor, ensina-me a vigiar e a permanecer firme na Tua Palavra. Que minha vida seja uma luz que afasta as trevas."</em></p>
+        <p>Enquanto orava, a luz da torre tornou-se ainda mais intensa, e ele percebeu que a vigilância espiritual não era apenas para sua proteção, mas também para guiar outros que estivessem perdidos.</p>
+        <p>Ao descer da torre, João encontrou um pergaminho deixado na base. Nele estava escrito: <strong>"Sede sóbrios e vigilantes. O diabo, vosso adversário, anda em derredor, como leão que ruge procurando alguém para devorar; resisti-lhe firmes na fé." (1 Pedro 5:8-9)</strong>.</p>
+        <p>Com essas palavras gravadas em sua mente e coração, ele continuou sua jornada, determinado a ser um guardião atento, sempre em oração e vigilância contra as ciladas do inimigo.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo25.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo27.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

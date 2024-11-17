@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 7</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Identifique o livro atual (por exemplo, usando um atributo data no body)
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa"; // Exemplo: 'NomeDoSeuLivro'
+
+            // Função para obter o nome do armazenamento local com base no livro
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salvar o ID do capítulo atual no localStorage
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            // Função para salvar o capítulo atual no localStorage
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId); // Log para debug
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook"; // Exemplo: 'diariodeomega'
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salva o capítulo atual no localStorage antes de navegar
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo7" -->
+    <div class="container capitulo" id="capitulo7">
+        <h1 class="chapter-number">Capítulo 7</h1>
+        <h2 class="chapter-title">A Travessia do Vale Sombrio</h2>
+        <p>Depois de atravessar o portal, João se viu em um vale envolto por uma névoa densa e fria. O silêncio era absoluto, quebrado apenas pelo som de seus próprios passos.</p>
+        <p>Enquanto caminhava, ele sentiu como se estivesse sendo observado. Sombras pareciam se mover ao longe, mas desapareciam sempre que ele tentava focar nelas.</p>
+        <p>No meio do caminho, uma figura encapuzada surgiu, bloqueando sua passagem. A figura não falava, mas seus olhos brilhavam intensamente, transmitindo uma mensagem silenciosa: "Você está preparado para enfrentar seus demônios internos?"</p>
+        <p>João sentiu seu coração acelerar. Ele sabia que este era mais um teste. A figura levantou a mão, e a névoa ao redor começou a se mover, formando imagens dos momentos mais difíceis da vida de João.</p>
+        <p>Ele viu sua infância solitária, as perdas que havia sofrido e os erros que o atormentavam. As sombras agora estavam ao seu redor, sussurrando dúvidas e medos.</p>
+        <p>João fechou os olhos e respirou fundo. Ele lembrou-se das palavras do guardião do lago: "A luz dentro de você é mais forte do que qualquer escuridão."</p>
+        <p>Quando abriu os olhos, ele encarou as sombras com determinação. "Vocês são parte de mim, mas não me definem," disse ele com firmeza. As sombras começaram a se dissipar, e o vale foi preenchido por uma luz dourada.</p>
+        <p>A figura encapuzada fez uma reverência antes de desaparecer na névoa. João sentiu uma leveza em seu coração, como se tivesse deixado um peso para trás.</p>
+        <p>Com passos firmes, ele continuou sua jornada pelo vale, sabendo que havia conquistado mais uma vitória importante em sua caminhada como guardião da promessa.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo6.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo8.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

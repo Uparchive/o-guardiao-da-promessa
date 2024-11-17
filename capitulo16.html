@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 16</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo16" -->
+    <div class="container capitulo" id="capitulo16">
+        <h1 class="chapter-number">Capítulo 16</h1>
+        <h2 class="chapter-title">O Eco do Propósito</h2>
+        <p>Após deixar a caverna, João encontrou um vasto vale coberto por grama alta e flores silvestres. O vento carregava o aroma fresco da natureza, mas também trazia um som peculiar – um eco que parecia repetir as palavras de sua própria alma.</p>
+        <p>Enquanto caminhava, ele ouvia sua voz interior questionando: <em>"Por que você foi escolhido? O que significa realmente ser um guardião da promessa?"</em></p>
+        <p>Ele parou e fechou os olhos, permitindo que o som do vento o envolvesse. Então, lembrou-se das palavras que lera tantas vezes: <strong>"Porque sou eu que conheço os planos que tenho para vocês, diz o Senhor, planos de fazê-los prosperar e não de lhes causar dano, planos de dar-lhes esperança e um futuro." (Jeremias 29:11)</strong>.</p>
+        <p>João sentiu uma paz em seu coração. Ele percebeu que, embora não entendesse completamente seu propósito, confiar em Deus era suficiente. Ele orou: <em>"Senhor, não preciso entender tudo. Apenas me guie e me ensine a confiar em Ti a cada passo."</em></p>
+        <p>Enquanto orava, uma borboleta dourada pousou em seu ombro. Ela parecia brilhar sob a luz do sol, como um lembrete de que Deus estava presente mesmo nas coisas mais simples.</p>
+        <p>Mais à frente, João encontrou uma pequena pedra gravada com as palavras: <strong>"Seja forte e corajoso. Não tenha medo, nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar." (Josué 1:9)</strong>.</p>
+        <p>Ele pegou a pedra e a guardou em seu bolso, sentindo que seria um símbolo de força nos momentos mais difíceis. A cada passo pelo vale, o eco parecia mudar, agora repetindo: <em>"Confie. Siga em frente. Você nunca está sozinho."</em></p>
+        <p>Quando a noite começou a cair, João chegou a um riacho onde decidiu descansar. Ele agradeceu a Deus pelo dia e pela paz que sentia em seu coração. O som do eco ainda estava em sua mente, mas agora era um lembrete de que Deus o havia chamado para algo maior.</p>
+        <p>Ao olhar para as estrelas, ele sussurrou: <em>"Obrigado, Senhor, por Tua fidelidade. Mesmo quando eu não compreendo o caminho, sei que Tu estás comigo."</em></p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo15.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo17.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

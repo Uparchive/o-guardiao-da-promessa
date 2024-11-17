@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 14</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo14" -->
+    <div class="container capitulo" id="capitulo14">
+        <h1 class="chapter-number">Capítulo 14</h1>
+        <h2 class="chapter-title">A Ponte da Fé</h2>
+        <p>Depois de deixar a aldeia, João chegou a um rio caudaloso. Ele podia ouvir o som forte da correnteza, que parecia desafiá-lo a atravessar. No entanto, não havia nenhuma ponte visível.</p>
+        <p>Ele se sentou na margem, refletindo. Sua mente voltou às palavras que ouvira tantas vezes: <strong>"Ora, a fé é o firme fundamento das coisas que se esperam, e a prova das coisas que não se veem." (Hebreus 11:1)</strong>.</p>
+        <p>João percebeu que este era um momento para confiar em Deus completamente. Ele se ajoelhou e orou: <em>"Senhor, eu não vejo o caminho, mas confio que Tu prepararás uma passagem para mim. Dá-me coragem para dar o primeiro passo."</em></p>
+        <p>Ao abrir os olhos, ele viu uma série de pedras emergirem da água, criando um caminho precário. Ele sabia que não seria fácil atravessar, mas também sentiu que Deus estava guiando cada movimento.</p>
+        <p>Com o bastão que o ancião lhe dera, João deu o primeiro passo sobre as pedras. A correnteza era forte e o equilíbrio, difícil, mas ele se lembrava das palavras de Jesus: <strong>"Eu sou o caminho, e a verdade, e a vida. Ninguém vem ao Pai, senão por mim." (João 14:6)</strong>.</p>
+        <p>Cada passo parecia um teste de sua fé. Ele sabia que, se olhasse para a força do rio, poderia vacilar. Em vez disso, manteve os olhos fixos no outro lado da margem, onde sentia a presença de Deus o chamando.</p>
+        <p>Ao chegar ao outro lado, ele caiu de joelhos e agradeceu: <em>"Obrigado, Senhor, por guiar meus passos e me ensinar a confiar em Ti, mesmo quando o caminho parece impossível."</em></p>
+        <p>Enquanto descansava, João refletiu sobre a travessia. Ele percebeu que a ponte da fé não era algo que podia ser visto ou tocado; era construída pela confiança em Deus e pelos passos que escolhemos dar mesmo na incerteza.</p>
+        <p>Reenergizado, João continuou sua jornada, sabendo que cada desafio era uma oportunidade de crescer na fé e no amor por Deus.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo13.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo15.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

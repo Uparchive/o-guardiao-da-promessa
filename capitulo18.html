@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 18</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo18" -->
+    <div class="container capitulo" id="capitulo18">
+        <h1 class="chapter-number">Capítulo 18</h1>
+        <h2 class="chapter-title">A Estrada das Sombras</h2>
+        <p>João continuou sua jornada ao longo de uma estrada cercada por árvores altas e densas. À medida que avançava, as sombras ao redor pareciam crescer, tornando o caminho mais sombrio e assustador.</p>
+        <p>Ele sentiu o peso do medo tentando tomar conta de seu coração, mas lembrou-se das palavras de Davi: <strong>"Ainda que eu ande pelo vale da sombra da morte, não temerei mal algum, porque tu estás comigo; a tua vara e o teu cajado me consolam." (Salmos 23:4)</strong>.</p>
+        <p>Com a pedra de Josué 1:9 ainda em seu bolso, ele a segurou firmemente e orou: <em>"Senhor, dá-me coragem para seguir em frente e me protege das trevas ao meu redor."</em></p>
+        <p>Enquanto caminhava, ouviu sussurros vindo das árvores. Eles falavam de suas dúvidas e falhas, tentando convencê-lo de que ele não era digno de sua missão. Por um momento, João quase acreditou, mas então se lembrou de outra promessa divina: <strong>"Porque Deus não nos deu espírito de covardia, mas de poder, de amor e de equilíbrio." (2 Timóteo 1:7)</strong>.</p>
+        <p>Ele respondeu aos sussurros em voz alta: "Eu não ando sozinho. Deus está comigo, e é Ele quem me fortalece!" As vozes desapareceram, e a estrada pareceu ficar um pouco mais clara.</p>
+        <p>Mais adiante, João encontrou uma pequena lanterna pendurada em um galho. A chama era pequena, mas parecia forte o suficiente para iluminar o caminho à frente. Ele pegou a lanterna e notou uma inscrição na base: <strong>"Lâmpada para os meus pés é a tua palavra, e luz para o meu caminho." (Salmos 119:105)</strong>.</p>
+        <p>Com a lanterna em mãos, João sentiu uma nova força em seu espírito. Ele percebeu que, mesmo nas estradas mais sombrias, a luz da Palavra de Deus seria suficiente para guiá-lo.</p>
+        <p>Quando finalmente chegou ao final da estrada, ele avistou uma clareira iluminada pela luz do sol. Ele se ajoelhou e agradeceu: <em>"Obrigado, Senhor, por ser minha luz nas trevas e minha força em tempos de fraqueza."</em></p>
+        <p>João sabia que desafios ainda estavam por vir, mas agora tinha a certeza de que a luz divina sempre o acompanharia, mesmo nos momentos mais sombrios.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo17.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo19.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 15</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo15" -->
+    <div class="container capitulo" id="capitulo15">
+        <h1 class="chapter-number">Capítulo 15</h1>
+        <h2 class="chapter-title">A Caverna do Refúgio</h2>
+        <p>Após atravessar o rio, João seguiu por uma trilha estreita que o levou a uma montanha íngreme. No alto, ele avistou uma caverna que parecia ser um refúgio. O vento uivava ao seu redor, mas ele sentiu uma paz inexplicável ao se aproximar.</p>
+        <p>Dentro da caverna, havia uma tocha acesa e um pequeno altar de pedra, sobre o qual repousava uma Bíblia aberta. Ele leu as palavras que estavam destacadas: <strong>"O Senhor é o meu pastor, nada me faltará." (Salmos 23:1)</strong>.</p>
+        <p>João se ajoelhou diante do altar e orou: <em>"Senhor, obrigado por ser meu refúgio e fortaleza. Mesmo em meio às tempestades da vida, sei que estou seguro em Ti."</em></p>
+        <p>Enquanto orava, ele ouviu passos vindo da entrada da caverna. Uma mulher idosa apareceu, carregando um cesto de pães. Ela sorriu e disse: "Você foi guiado até aqui por uma razão."</p>
+        <p>João aceitou o pão que ela lhe ofereceu e perguntou: "Quem é você?" Ela respondeu: "Sou apenas uma serva do Senhor. Muitos vêm aqui buscando respostas, mas o que encontram é a paz que somente Deus pode dar."</p>
+        <p>A idosa sentou-se ao lado de João e compartilhou histórias de outros viajantes que haviam passado pela caverna. Cada um tinha enfrentado desafios únicos, mas todos encontraram força em sua fé.</p>
+        <p>João percebeu que aquela caverna era mais do que um refúgio físico; era um símbolo da proteção e da provisão divina. Ele perguntou: "Como posso retribuir tudo o que Deus tem feito por mim?"</p>
+        <p>A mulher respondeu com um sorriso: "Viva de acordo com Sua Palavra e seja uma luz para os outros, assim como Ele tem sido uma luz para você."</p>
+        <p>Quando o sol começou a se pôr, a mulher desapareceu tão silenciosamente quanto havia chegado. João deixou a caverna com o coração cheio de gratidão e uma nova determinação de cumprir sua missão.</p>
+        <p>Ele sabia que o caminho ainda seria longo, mas agora estava mais confiante do que nunca de que Deus estava ao seu lado, guiando cada passo.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo14.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo16.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

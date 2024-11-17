@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 28</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo28" -->
+    <div class="container capitulo" id="capitulo28">
+        <h1 class="chapter-number">Capítulo 28</h1>
+        <h2 class="chapter-title">O Santuário da Promessa</h2>
+        <p>Depois de vencer as sombras com a armadura da fé, João avistou ao longe uma estrutura grandiosa feita de mármore branco. Ela brilhava à luz do sol, como um farol que chamava sua atenção. Era o Santuário da Promessa.</p>
+        <p>Ao se aproximar, ele notou que a entrada era guardada por dois portões altos e imponentes, cada um gravado com símbolos que pareciam se mover e reluzir. No topo, estava inscrito: <strong>"Fiel é o que vos chama, o qual também o fará." (1 Tessalonicenses 5:24)</strong>.</p>
+        <p>João colocou a mão sobre os portões, e eles se abriram lentamente, revelando um salão vasto e iluminado por uma luz que parecia emanar do próprio céu. No centro do santuário havia um altar simples, mas radiante, sobre o qual repousava um livro fechado com um selo dourado.</p>
+        <p>Ele se ajoelhou diante do altar e orou: <em>"Senhor, estou aqui para cumprir Tua vontade. Mostra-me o que devo fazer com esta promessa que carrego."</em></p>
+        <p>Enquanto orava, ouviu uma voz serena e poderosa: "João, você chegou até aqui porque confiou, perseverou e caminhou em fé. A promessa que carrega não é apenas para você, mas para todos que cruzarem seu caminho."</p>
+        <p>O selo do livro começou a brilhar intensamente e se desfez, permitindo que João o abrisse. Em suas páginas, havia palavras que pareciam vivas, proclamando as verdades de Deus e as promessas que Ele havia dado ao Seu povo desde o princípio.</p>
+        <p>João leu em voz alta: <strong>"Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias; correrão, e não se cansarão; caminharão, e não se fatigarão." (Isaías 40:31)</strong>.</p>
+        <p>À medida que lia, uma paz indescritível tomou conta do ambiente. Ele entendeu que a promessa não era algo a ser guardado em segredo, mas uma mensagem de esperança a ser compartilhada com o mundo.</p>
+        <p>Ao sair do santuário, João viu que sua jornada ainda não havia terminado, mas agora ele carregava consigo não apenas a promessa, mas também a missão de proclamá-la. Ele sabia que desafios ainda viriam, mas estava mais confiante do que nunca de que Deus estava com ele.</p>
+        <p>Com o coração cheio de gratidão, ele orou uma última vez antes de seguir: <em>"Obrigado, Senhor, por me confiar Tua promessa. Que eu seja fiel em compartilhar Tua luz com todos que encontrarem meu caminho."</em></p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo27.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo29.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

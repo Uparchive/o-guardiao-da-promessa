@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 22</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo22" -->
+    <div class="container capitulo" id="capitulo22">
+        <h1 class="chapter-number">Capítulo 22</h1>
+        <h2 class="chapter-title">O Deserto do Silêncio</h2>
+        <p>Depois de deixar o vale das promessas, João encontrou-se em um deserto vasto e silencioso. A areia dourada se estendia até onde a vista alcançava, e o calor era intenso, tornando cada passo uma batalha.</p>
+        <p>Ele sentiu a ausência de som como algo esmagador. Não havia vento, nem o som de pássaros ou água – apenas o silêncio absoluto. João começou a questionar por que Deus o havia trazido até ali.</p>
+        <p>Lembrando-se das Escrituras, ele disse em voz alta: <strong>"Porque o Senhor me guiou até aqui, não temo. Ele tem um propósito em todas as coisas." (Provérbios 16:9)</strong>.</p>
+        <p>Enquanto caminhava, ele percebeu que o silêncio não era vazio, mas um convite à reflexão. Sentou-se sob a sombra de uma rocha e começou a orar: <em>"Senhor, neste deserto, ensina-me a ouvir Tua voz. Mostra-me o que preciso aprender aqui."</em></p>
+        <p>Após a oração, João sentiu uma leve brisa tocar seu rosto. Ele abriu os olhos e viu uma figura ao longe, caminhando em sua direção. Era um homem vestido de branco, com uma presença serena e ao mesmo tempo poderosa.</p>
+        <p>O homem se aproximou e disse: "João, o deserto é um lugar onde o coração é moldado. Muitos se perdem aqui porque ouvem apenas o eco de seus medos. Mas aqueles que esperam no Senhor encontram a força para prosseguir."</p>
+        <p>João perguntou: "Como posso ouvir a voz de Deus neste silêncio?" O homem respondeu: "O silêncio é onde Deus fala mais alto. Não com ouvidos humanos, mas com o coração disposto a ouvir."</p>
+        <p>Depois de um tempo, o homem desapareceu, deixando João sozinho novamente. Mas agora, o silêncio parecia diferente – não mais vazio, mas cheio da presença divina.</p>
+        <p>João levantou-se e continuou sua jornada, sentindo que o deserto havia fortalecido sua fé e renovado sua confiança em Deus. Ele sabia que, mesmo nos momentos mais áridos da vida, Deus estava trabalhando em seu coração.</p>
+        <p>No horizonte, ele viu uma pequena luz, indicando o próximo passo de sua jornada. Ele orou: <em>"Senhor, obrigado por me ensinar a ouvir no silêncio. Guia-me com Tua luz e renova minha força a cada dia."</em></p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo21.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo23.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

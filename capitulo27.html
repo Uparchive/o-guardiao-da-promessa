@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 27</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo27" -->
+    <div class="container capitulo" id="capitulo27">
+        <h1 class="chapter-number">Capítulo 27</h1>
+        <h2 class="chapter-title">A Armadura da Fé</h2>
+        <p>Depois de deixar a torre, João caminhou por um campo aberto que parecia tranquilo, mas logo sentiu o ambiente mudar. O céu ficou cinzento, e ele ouviu passos ao longe. Sombras começaram a aparecer, movendo-se rapidamente ao seu redor.</p>
+        <p>Uma voz ecoou em sua mente: <strong>"Revesti-vos de toda a armadura de Deus, para que possais estar firmes contra as ciladas do diabo." (Efésios 6:11)</strong>.</p>
+        <p>Ele sentiu o peso da batalha espiritual se aproximando e sabia que precisava estar preparado. Ao olhar ao redor, viu um baú reluzente no centro do campo. Ao abri-lo, encontrou itens que brilhavam com uma luz divina: um capacete, uma couraça, um cinto, sapatos, um escudo e uma espada.</p>
+        <p>Cada peça da armadura tinha uma inscrição. O capacete dizia: <strong>"A salvação pertence ao Senhor" (Salmos 3:8)</strong>. A couraça estava marcada com: <strong>"Guarda o teu coração, porque dele procedem as fontes da vida." (Provérbios 4:23)</strong>.</p>
+        <p>João começou a vestir a armadura, sentindo-se fortalecido a cada peça colocada. O cinto trazia a inscrição: <strong>"Cinge-te com a verdade." (Efésios 6:14)</strong>. Os sapatos, ao calçá-los, transmitiam paz, com as palavras: <strong>"Preparação do evangelho da paz." (Efésios 6:15)</strong>.</p>
+        <p>Ele segurou o escudo e a espada. O escudo brilhava com as palavras: <strong>"A tua fé te salvou." (Lucas 7:50)</strong>. A espada estava marcada com: <strong>"A Palavra de Deus é viva e eficaz." (Hebreus 4:12)</strong>.</p>
+        <p>Agora completamente armado, João sentiu-se cercado por uma proteção divina. Ele orou: <em>"Senhor, obrigado por Tua armadura que me prepara para enfrentar qualquer adversidade. Que eu use essas ferramentas com sabedoria e confiança em Ti."</em></p>
+        <p>As sombras ao redor começaram a avançar, mas João não sentiu medo. Ele levantou o escudo e, com a espada em mãos, declarou: <strong>"Maior é o que está em mim do que o que está no mundo." (1 João 4:4)</strong>.</p>
+        <p>Ao proclamar essas palavras, as sombras desapareceram, e a luz voltou a brilhar no campo. João sabia que a armadura da fé não era apenas uma proteção, mas um lembrete de que Deus estava sempre ao seu lado.</p>
+        <p>Ele continuou sua jornada, mais confiante do que nunca, determinado a usar a armadura não apenas para sua proteção, mas também para ajudar outros a encontrarem força e esperança em Deus.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo26.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo28.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

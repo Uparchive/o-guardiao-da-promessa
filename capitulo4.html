@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 4</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Identifique o livro atual (por exemplo, usando um atributo data no body)
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa"; // Exemplo: 'NomeDoSeuLivro'
+
+            // Função para obter o nome do armazenamento local com base no livro
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salvar o ID do capítulo atual no localStorage
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            // Função para salvar o capítulo atual no localStorage
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId); // Log para debug
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook"; // Exemplo: 'diariodeomega'
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salva o capítulo atual no localStorage antes de navegar
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo4" -->
+    <div class="container capitulo" id="capitulo4">
+        <h1 class="chapter-number">Capítulo 4</h1>
+        <h2 class="chapter-title">A Floresta dos Sussurros</h2>
+        <p>Depois de atravessar a ponte, João encontrou-se diante de uma densa floresta. As árvores eram tão altas que bloqueavam a luz do sol, deixando tudo em um tom sombrio e misterioso.</p>
+        <p>Enquanto caminhava, ele ouviu sussurros que pareciam vir das próprias árvores. Era como se a floresta estivesse viva, observando cada movimento seu.</p>
+        <p>João tentou ignorar os sons e focar no caminho, mas algo dentro dele sabia que havia mais ali do que aparentava. Ele sentia que estava sendo testado novamente.</p>
+        <p>De repente, uma figura encapuzada surgiu entre as árvores. A figura segurava um cajado e tinha uma presença ao mesmo tempo assustadora e tranquilizadora.</p>
+        <p>"João, você chegou até aqui, mas a floresta testa o coração de todos que passam por ela. Você é puro o suficiente para ouvir seus segredos?", disse a figura, com uma voz que ecoava na floresta.</p>
+        <p>João hesitou, mas respondeu com firmeza: "Eu não sei o que a floresta quer de mim, mas estou aqui para cumprir minha jornada. Estou pronto para ouvir."</p>
+        <p>A figura balançou a cabeça e tocou o chão com seu cajado. Imediatamente, a floresta começou a brilhar levemente, revelando caminhos que antes estavam escondidos.</p>
+        <p>"Siga o caminho da luz, João. Mas lembre-se, os sussurros não são inimigos, mas guias para aqueles que sabem ouvir com o coração."</p>
+        <p>Com isso, a figura desapareceu, e João continuou seu caminho, ouvindo os sussurros com uma nova perspectiva. Ele sentia que a floresta queria ajudá-lo, mas ele precisava confiar.</p>
+        <p>Cada passo o levava mais fundo na floresta e mais perto de desvendar os segredos que ela guardava. João sabia que aquele lugar marcaria sua jornada para sempre.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo3.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo5.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

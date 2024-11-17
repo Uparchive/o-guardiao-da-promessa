@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 30</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo30" -->
+    <div class="container capitulo" id="capitulo30">
+        <h1 class="chapter-number">Capítulo 30</h1>
+        <h2 class="chapter-title">A Coroação da Promessa</h2>
+        <p>João subiu a colina dourada com passos firmes, sentindo o peso de sua jornada e a leveza da certeza de que estava perto do propósito final. No topo da colina, havia uma grande luz, tão intensa e ao mesmo tempo tão acolhedora, que ele mal conseguia desviar o olhar.</p>
+        <p>Ao se aproximar, viu um trono de luz cercado por milhares de vozes cantando em harmonia: <strong>"Santo, santo, santo é o Senhor Deus Todo-Poderoso, aquele que era, que é, e que há de vir!" (Apocalipse 4:8)</strong>.</p>
+        <p>João se ajoelhou diante da luz, sentindo uma paz e uma alegria que nunca havia experimentado. Uma voz poderosa, mas cheia de amor, ecoou em seu coração: "João, guardião da promessa, você foi fiel em sua jornada. Trouxe luz onde havia trevas, esperança onde havia desespero, e perseverou em confiança e amor."</p>
+        <p>Uma coroa dourada apareceu diante dele. A voz continuou: "Esta coroa é um símbolo de sua fidelidade, mas lembre-se, a glória é do Senhor. Levante-se e continue a proclamar as promessas que lhe confiei."</p>
+        <p>João segurou a coroa em suas mãos e respondeu: <em>"Senhor, toda honra e glória pertencem a Ti. Eu sou apenas Teu servo. Que minha vida continue a ser um reflexo do Teu amor e Tua fidelidade."</em></p>
+        <p>Ao colocar a coroa, a luz ao redor cresceu, e ele sentiu que não estava apenas em um lugar físico, mas também em um plano espiritual onde a presença de Deus era tangível. Ele sabia que sua jornada terrena havia chegado a um clímax, mas que o trabalho de compartilhar as promessas divinas nunca terminaria.</p>
+        <p>Quando desceu a colina, ele percebeu que não estava mais sozinho. Pessoas de todos os lugares estavam ao seu lado, prontas para ouvir e caminhar junto. Ele entendeu que sua missão era ser um guia, apontando para a luz que o havia guiado durante toda a sua jornada.</p>
+        <p>Com o coração cheio de gratidão e renovado pelo amor de Deus, João sorriu e declarou: <strong>"Combati o bom combate, terminei a corrida, guardei a fé." (2 Timóteo 4:7)</strong>.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo29.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('fim.html')">Fim</button>
+        </div>
+    </div>
+</body>
+</html>

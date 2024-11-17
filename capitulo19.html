@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 19</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo19" -->
+    <div class="container capitulo" id="capitulo19">
+        <h1 class="chapter-number">Capítulo 19</h1>
+        <h2 class="chapter-title">O Desafio do Espelho</h2>
+        <p>Após sair da clareira iluminada, João encontrou um caminho pavimentado com pedras lisas que brilhavam sob a luz do sol. Ao final do caminho, ele avistou uma estrutura alta feita de cristal, refletindo tudo ao seu redor.</p>
+        <p>Ao se aproximar, percebeu que era um grande espelho, mas algo estava estranho. Quando olhou para seu reflexo, ele viu não apenas sua aparência, mas também momentos de sua vida – escolhas que fizera, erros que cometera e lutas internas que enfrentava.</p>
+        <p>De repente, o reflexo começou a falar: "Você acredita ser digno de sua missão? Veja seus fracassos, veja suas falhas. Como pode carregar a promessa com tantas imperfeições?"</p>
+        <p>João sentiu o peso da culpa e da dúvida o envolver, mas lembrou-se das palavras de Paulo: <strong>"Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus." (Romanos 8:1)</strong>.</p>
+        <p>Ele ergueu a cabeça e respondeu ao reflexo: "Eu não sou perfeito, mas não é pela minha força ou merecimento que sigo adiante. É pela graça de Deus que fui chamado, e é Ele quem me sustenta."</p>
+        <p>O reflexo começou a se distorcer e desaparecer, deixando para trás um caminho aberto. Antes de seguir, João se ajoelhou e orou: <em>"Senhor, obrigado por Tua graça que é maior do que minhas falhas. Ensina-me a olhar para Ti, e não para minhas fraquezas."</em></p>
+        <p>Ao atravessar o espelho, João sentiu como se um peso tivesse sido retirado de seus ombros. Ele percebeu que as dúvidas que o perseguiam eram apenas ecos de seu passado, e que a promessa era sustentada por algo muito maior: o amor e o poder de Deus.</p>
+        <p>Mais à frente, ele encontrou uma placa com as palavras: <strong>"A minha graça te basta, porque o meu poder se aperfeiçoa na fraqueza." (2 Coríntios 12:9)</strong>.</p>
+        <p>Com essas palavras gravadas em seu coração, João continuou sua jornada, mais confiante de que, mesmo em sua imperfeição, ele era escolhido e capacitado pelo próprio Deus.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo18.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo20.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

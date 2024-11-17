@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Identifique o livro atual (por exemplo, usando um atributo data no body)
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa"; // Exemplo: 'NomeDoSeuLivro'
+
+            // Função para obter o nome do armazenamento local com base no livro
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salvar o ID do capítulo atual no localStorage
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            // Função para salvar o capítulo atual no localStorage
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId); // Log para debug
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook"; // Exemplo: 'diariodeomega'
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salva o capítulo atual no localStorage antes de navegar
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo3" -->
+    <div class="container capitulo" id="capitulo3">
+        <h1 class="chapter-number">Capítulo 3</h1>
+        <h2 class="chapter-title">O Teste da Coragem</h2>
+        <p>A jornada de João o levou a uma ponte antiga e desgastada que se estendia sobre um abismo profundo. O som do vento era assustador, e o crepitar das tábuas fazia seu coração acelerar.</p>
+        <p>Ele sabia que precisava atravessar, mas o medo o paralisava. O velho mensageiro havia mencionado provações, mas João não esperava que enfrentaria um desafio tão cedo.</p>
+        <p>Enquanto ele olhava para o outro lado, viu algo brilhando na escuridão. Era um pequeno símbolo, semelhante à marca que carregava em um colar dado por sua mãe.</p>
+        <p>Aquilo reacendeu sua determinação. Ele sabia que cada passo o aproximava do propósito maior. Com cuidado, ele colocou um pé na ponte e começou a atravessar.</p>
+        <p>As tábuas rangiam e pareciam prestes a ceder, mas João manteve o foco. Atravessar aquela ponte era mais do que um teste físico; era um teste de sua coragem e fé.</p>
+        <p>Ao chegar ao outro lado, ele caiu de joelhos, respirando fundo. Ele havia superado um dos primeiros grandes desafios de sua jornada.</p>
+        <p>Enquanto se recompunha, ouviu uma voz suave e familiar ecoando ao longe: "Você está no caminho certo, João. Continue... A promessa espera por você."</p>
+        <p>João olhou em volta, mas não viu ninguém. Mesmo assim, ele sentiu um conforto inexplicável, como se não estivesse sozinho.</p>
+        <p>Ele se levantou, limpou o suor da testa e seguiu em frente, com uma coragem renovada e um coração mais forte.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo2.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo4.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

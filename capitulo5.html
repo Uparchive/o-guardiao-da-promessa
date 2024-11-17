@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Identifique o livro atual (por exemplo, usando um atributo data no body)
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa"; // Exemplo: 'NomeDoSeuLivro'
+
+            // Função para obter o nome do armazenamento local com base no livro
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salvar o ID do capítulo atual no localStorage
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            // Função para salvar o capítulo atual no localStorage
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId); // Log para debug
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook"; // Exemplo: 'diariodeomega'
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salva o capítulo atual no localStorage antes de navegar
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo5" -->
+    <div class="container capitulo" id="capitulo5">
+        <h1 class="chapter-number">Capítulo 5</h1>
+        <h2 class="chapter-title">O Guardião do Lago</h2>
+        <p>Após atravessar a floresta, João encontrou-se diante de um lago cristalino, cercado por montanhas que tocavam o céu. A água refletia a luz do entardecer, criando uma cena de beleza arrebatadora.</p>
+        <p>Enquanto ele se aproximava da margem, uma figura emergiu da água. Era um homem alto, com cabelos prateados e olhos tão profundos quanto o próprio lago. Ele vestia uma armadura reluzente que parecia feita de luz.</p>
+        <p>"Bem-vindo, viajante," disse o homem com uma voz que soava como o eco das montanhas. "Eu sou o guardião deste lago. Ele guarda segredos que podem ajudá-lo em sua jornada, mas somente aqueles que provam sua sinceridade podem acessar suas águas."</p>
+        <p>João respirou fundo. Ele sentia que este era um teste importante. "O que devo fazer para provar minha sinceridade?" perguntou ele.</p>
+        <p>"Você deve mergulhar nas águas e enfrentar aquilo que você mais teme," respondeu o guardião. "A água do lago reflete não apenas o mundo ao seu redor, mas também os segredos do seu coração."</p>
+        <p>Sem hesitar, João entrou no lago. A água era fria e envolvente, e logo ele foi puxado para um mundo de visões. Ele viu seus medos, suas inseguranças e momentos em que havia duvidado de si mesmo.</p>
+        <p>Mas então, uma luz começou a brilhar no fundo do lago. João nadou em direção a ela, sentindo uma força dentro de si crescer a cada braçada. Quando ele alcançou a luz, uma sensação de paz o envolveu.</p>
+        <p>Ao emergir, o guardião estava esperando por ele com um sorriso. "Você enfrentou seus medos e encontrou a luz dentro de você. Agora, o lago concederá a você a sabedoria que procura."</p>
+        <p>João sentiu como se uma nova clareza o tivesse preenchido. Ele sabia que este era apenas o começo, mas agora ele tinha mais confiança para continuar sua jornada.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo4.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo6.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

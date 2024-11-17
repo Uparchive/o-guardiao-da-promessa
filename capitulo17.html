@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 17</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo17" -->
+    <div class="container capitulo" id="capitulo17">
+        <h1 class="chapter-number">Capítulo 17</h1>
+        <h2 class="chapter-title">O Encontro no Silêncio</h2>
+        <p>João acordou ao som do riacho fluindo suavemente. O céu estava coberto de nuvens que refletiam tons suaves de cinza e dourado. Ele sentiu que aquele seria um dia importante, mas não sabia por quê.</p>
+        <p>Ao levantar-se, avistou um homem parado do outro lado do riacho. O homem vestia roupas simples, mas havia algo em sua presença que emanava força e serenidade. João atravessou o riacho e se aproximou, cumprimentando-o com respeito.</p>
+        <p>O homem sorriu e disse: "João, você tem caminhado bem, mas ainda há muito a aprender. Sente-se comigo."</p>
+        <p>Sem hesitar, João se sentou. O homem não disse mais nada, e o silêncio se instalou entre eles. Inicialmente, João se sentiu desconfortável, mas logo percebeu que o silêncio não era vazio – ele estava cheio de significado.</p>
+        <p>Enquanto contemplava o ambiente ao redor, João lembrou-se das palavras das Escrituras: <strong>"Aquietai-vos e sabei que eu sou Deus; serei exaltado entre as nações, serei exaltado sobre a terra." (Salmos 46:10)</strong>.</p>
+        <p>Ele fechou os olhos e permitiu que seu coração descansasse. No silêncio, ele sentiu Deus falar com ele, não em palavras, mas em paz e clareza. Ele percebeu que nem sempre era necessário buscar respostas ativamente; às vezes, era preciso apenas estar na presença de Deus.</p>
+        <p>Depois de um tempo, o homem falou novamente: "Você será desafiado a manter essa paz mesmo quando o mundo ao seu redor estiver em caos. Lembre-se disso: a verdadeira força vem de confiar, não de lutar."</p>
+        <p>João assentiu, sentindo que aquelas palavras ficariam com ele para sempre. Ele agradeceu ao homem, mas quando abriu os olhos novamente, percebeu que estava sozinho. O homem havia desaparecido tão silenciosamente quanto havia chegado.</p>
+        <p>Ao continuar sua jornada, João refletiu sobre o poder do silêncio e da confiança em Deus. Ele sabia que os desafios à frente seriam grandes, mas também sabia que a paz divina seria sua maior arma.</p>
+        <p>Enquanto caminhava, ele orou: <em>"Senhor, ajuda-me a confiar em Ti, mesmo quando tudo parecer incerto. Que minha paz venha de Tua presença, e minha força, de Tua Palavra."</em></p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo16.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo18.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 0 - Introdução</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo0" -->
+    <div class="container capitulo" id="capitulo0">
+        <!-- Imagem da capa -->
+        <div class="book-cover">
+            <img src="https://firebasestorage.googleapis.com/v0/b/armazene-acd30.appspot.com/o/uploads%2Fz0wQUWxFhKRBeMLIHIjOHd1dpHn2%2FO%20Guardi%C3%A3o%20Da%20Promessa.png?alt=media&token=ec945e7d-f20e-4542-973d-6801f6234439" alt="Capa do livro O Guardião da Promessa">
+        </div>
+
+        <!-- Introdução ao livro -->
+        <h1 class="chapter-number">O Guardião da Promessa</h1>
+        <h2 class="chapter-title">Introdução</h2>
+        <p>
+            O tempo é um mistério infinito, carregando em suas ondas as histórias, as escolhas e os propósitos que moldam nossas vidas.
+            Em meio a ele, surge um chamado — não para aqueles que procuram glória ou riquezas, mas para os que têm coragem de carregar
+            um fardo sagrado: a promessa.
+        </p>
+        <p>
+            <strong>"O Guardião da Promessa"</strong> é mais do que uma jornada; é um reflexo da luta espiritual que todos enfrentamos.
+            Acompanhamos João, um homem comum que foi escolhido para uma missão extraordinária, enfrentando desafios que testam sua fé,
+            resiliência e propósito. Cada passo revela não apenas a magnitude de sua tarefa, mas também a presença constante de um Deus
+            que guia, ensina e fortalece.
+        </p>
+        <p>
+            Em suas páginas, você encontrará ecos de sua própria caminhada, relembrando que, mesmo nos vales mais sombrios, há luz.
+            Que mesmo nas provações mais intensas, há graça. E que, ao final de toda luta, há uma promessa esperando ser cumprida.
+        </p>
+        <p>
+            Esta é uma história de fé inabalável, de batalhas espirituais e de amor divino. Uma história que nos convida a refletir:
+            o que significa ser um guardião do que é eterno?
+        </p>
+        <p>
+            Bem-vindo à jornada. Prepare-se para descobrir que a verdadeira força vem do alto, e que a promessa é tanto um fardo quanto
+            uma bênção divina. Que esta história inspire sua caminhada, fortaleça sua fé e reacenda sua esperança no propósito maior
+            para o qual todos fomos chamados.
+        </p>
+
+        <!-- Botões de navegação -->
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('index.html')">Capa</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo1.html')">Iniciar</button>
+        </div>
+    </div>
+</body>
+</html>

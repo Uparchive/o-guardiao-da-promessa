@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 29</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo29" -->
+    <div class="container capitulo" id="capitulo29">
+        <h1 class="chapter-number">Capítulo 29</h1>
+        <h2 class="chapter-title">O Penhasco da Decisão</h2>
+        <p>Depois de sair do Santuário da Promessa, João chegou a um penhasco que dava vista para um abismo profundo. O vento soprava forte, e ele podia ouvir o eco de suas próprias dúvidas ao olhar para o vazio à frente.</p>
+        <p>Ao lado do penhasco, havia uma ponte estreita e instável que parecia levar a outro lado, onde uma luz brilhava intensamente. Mas ao lado da ponte, um homem misterioso, vestido de preto, apareceu e falou com uma voz sedutora:</p>
+        <p>"João, por que arriscar-se cruzando essa ponte perigosa? Não seria mais fácil voltar pelo caminho de onde veio? Você já fez muito. Não precisa ir além."</p>
+        <p>João sentiu as palavras como um peso sobre seus ombros, mas lembrou-se das promessas de Deus. Ele respondeu com firmeza: <strong>"Não fui chamado para voltar, mas para avançar. Pois está escrito: 'Esquecendo-me das coisas que para trás ficam e avançando para as que estão adiante de mim, prossigo para o alvo.' (Filipenses 3:13-14)"</strong>.</p>
+        <p>O homem de preto sorriu ironicamente e respondeu: "Mas e se você cair? Quem garantirá sua segurança?" João ergueu o bastão que carregava e declarou: <strong>"O Senhor é quem me sustenta. Ele é minha rocha e minha fortaleza. Não temerei."</strong></p>
+        <p>Ao dar o primeiro passo na ponte, o homem desapareceu, mas a ponte começou a balançar violentamente. Cada passo exigia fé e confiança. João orou enquanto caminhava: <em>"Senhor, guia meus passos e sustenta-me com Tua mão poderosa."</em></p>
+        <p>Quando finalmente alcançou o outro lado, ele caiu de joelhos, sentindo a presença de Deus como nunca antes. Ele ouviu uma voz suave e poderosa dizer: "Você escolheu confiar em Mim, mesmo diante do medo. Sua decisão reflete sua fé e seu amor por Mim."</p>
+        <p>João respondeu em oração: <em>"Senhor, tudo o que sou e tudo o que tenho pertence a Ti. Obrigado por me guiar e me fortalecer quando sou fraco."</em></p>
+        <p>À sua frente, ele viu uma colina dourada que parecia ser o destino final de sua jornada. Mas antes de continuar, ele olhou para trás e percebeu que a ponte havia desaparecido. Não havia mais retorno, apenas o caminho à frente.</p>
+        <p>Com o coração renovado e a certeza de que Deus estava com ele, João começou a subir a colina, determinado a cumprir o propósito que o havia guiado até ali.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo28.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo30.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

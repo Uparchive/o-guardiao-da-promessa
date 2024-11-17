@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 20</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo20" -->
+    <div class="container capitulo" id="capitulo20">
+        <h1 class="chapter-number">Capítulo 20</h1>
+        <h2 class="chapter-title">O Jardim do Perdão</h2>
+        <p>Depois de atravessar o espelho, João chegou a um jardim exuberante, repleto de flores de todas as cores. O ar era fresco e perfumado, mas no centro do jardim havia uma árvore solitária e murcha. João sentiu uma inquietação ao olhar para a árvore.</p>
+        <p>Ele se aproximou e notou que a árvore estava cercada por pedras com palavras gravadas: "Mágoa", "Ódio", "Ressentimento". Cada pedra parecia carregar um peso espiritual, tornando o ambiente opressivo.</p>
+        <p>De repente, uma voz suave ecoou pelo jardim: <strong>"Se perdoardes aos homens as suas ofensas, também vosso Pai celestial vos perdoará." (Mateus 6:14)</strong>.</p>
+        <p>João se ajoelhou ao lado da árvore e orou: <em>"Senhor, mostra-me o que devo fazer. Se há mágoas ou ressentimentos em meu coração, ajuda-me a libertá-los."</em></p>
+        <p>Enquanto orava, ele lembrou-se de momentos em sua vida em que havia sido ferido por outros. Cada lembrança vinha acompanhada de uma dor que ele tentou ignorar, mas agora percebia que precisava enfrentar.</p>
+        <p>Com lágrimas nos olhos, ele disse em voz alta: "Eu perdoo todos que me feriram. Libero essa dor e entrego tudo a Ti, Senhor."</p>
+        <p>Quando terminou sua oração, as pedras ao redor da árvore começaram a desaparecer, e a árvore antes murcha começou a florescer. Pequenos brotos verdes surgiram em seus galhos, e em pouco tempo ela estava repleta de frutos dourados.</p>
+        <p>João colheu um dos frutos e sentiu uma paz indescritível ao comê-lo. Ele percebeu que o perdão não apenas libertava os outros, mas também a si mesmo. Era como uma chave que abria a porta para a cura e a renovação.</p>
+        <p>Ao sair do jardim, ele encontrou uma inscrição em uma pedra próxima ao caminho: <strong>"Suportem-se uns aos outros e perdoem as queixas que tiverem uns contra os outros. Perdoem como o Senhor lhes perdoou." (Colossenses 3:13)</strong>.</p>
+        <p>João continuou sua jornada com o coração mais leve, sabendo que o perdão era uma das maiores demonstrações do amor de Deus.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo19.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo21.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

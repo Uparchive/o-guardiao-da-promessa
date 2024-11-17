@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 13</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo13" -->
+    <div class="container capitulo" id="capitulo13">
+        <h1 class="chapter-number">Capítulo 13</h1>
+        <h2 class="chapter-title">O Chamado ao Serviço</h2>
+        <p>João deixou o vale e chegou a uma pequena aldeia à beira de um rio cristalino. As pessoas da aldeia pareciam preocupadas, e uma tensão pairava no ar. Ele se aproximou de um grupo reunido em frente a uma casa e perguntou: "O que está acontecendo aqui?"</p>
+        <p>Um homem respondeu: "A colheita deste ano foi destruída por uma praga, e muitos estão passando fome. Temos orado por ajuda, mas as coisas só parecem piorar."</p>
+        <p>João sentiu uma compaixão profunda pelos aldeões. Ele sabia que não era por acaso que Deus o havia guiado até ali. Ele respondeu: "Eu não tenho muito, mas sirvo a um Deus que pode multiplicar o pouco para atender às necessidades de muitos."</p>
+        <p>Ele orou silenciosamente: <em>"Senhor, mostra-me como posso ser um instrumento da Tua provisão aqui. Usa-me para trazer esperança a essas pessoas."</em></p>
+        <p>Enquanto caminhava pelo vilarejo, João percebeu que muitos alimentos ainda poderiam ser salvos, apesar de estarem aparentemente danificados. Ele reuniu os aldeões e disse: "Vamos recolher tudo o que ainda pode ser aproveitado. Confiaremos que Deus fará o restante."</p>
+        <p>Juntos, eles recolheram frutas, grãos e legumes. João liderou uma oração sobre os alimentos, pedindo a Deus que os abençoasse e multiplicasse como havia feito com os pães e peixes para a multidão.</p>
+        <p>Enquanto preparavam as refeições, algo incrível aconteceu: os alimentos pareciam mais do que suficientes para alimentar toda a aldeia. O que antes era pouco agora parecia uma abundância.</p>
+        <p>Os aldeões se alegraram e louvaram a Deus por Sua provisão. Um dos anciãos da aldeia se aproximou de João e disse: "Você nos trouxe mais do que comida; nos trouxe esperança. Deus está conosco."</p>
+        <p>João respondeu: "Eu sou apenas um servo, mas é Deus quem faz o impossível. Continuem confiando n’Ele e ajudando uns aos outros."</p>
+        <p>Ao anoitecer, João sentou-se à beira do rio, refletindo sobre o dia. Ele agradeceu a Deus por usar sua vida para abençoar outras pessoas. Ele entendeu que ser um guardião da promessa não era apenas sobre seguir um caminho, mas também sobre servir e amar como Cristo amou.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo12.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo14.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

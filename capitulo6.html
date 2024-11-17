@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 6</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Identifique o livro atual (por exemplo, usando um atributo data no body)
+            const currentBook = document.body.dataset.bookId || "o-guardião-da-promessa"; // Exemplo: 'NomeDoSeuLivro'
+
+            // Função para obter o nome do armazenamento local com base no livro
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salvar o ID do capítulo atual no localStorage
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            // Função para salvar o capítulo atual no localStorage
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId); // Log para debug
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook"; // Exemplo: 'diariodeomega'
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            // Salva o capítulo atual no localStorage antes de navegar
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="o-guardião-da-promessa">
+    <!-- Identificação do capítulo com classe "capitulo" e id "capitulo6" -->
+    <div class="container capitulo" id="capitulo6">
+        <h1 class="chapter-number">Capítulo 6</h1>
+        <h2 class="chapter-title">O Enigma das Pedras Antigas</h2>
+        <p>Depois de deixar o lago, João se encontrou em um vasto campo coberto por pedras gigantescas, cada uma gravada com símbolos antigos que ele não reconhecia.</p>
+        <p>O vento soprava forte, carregando um som que parecia formar palavras, embora ele não pudesse compreendê-las. Ele sabia que aquele lugar guardava um segredo essencial para sua jornada.</p>
+        <p>Enquanto caminhava entre as pedras, encontrou um pedestal no centro do campo. Sobre ele havia um pequeno orbe brilhante, pulsando com uma luz dourada.</p>
+        <p>Ao tocar o orbe, uma voz ecoou em sua mente: "Decifre o enigma e encontrará o caminho. Falhe, e ficará preso neste lugar para sempre."</p>
+        <p>O pedestal projetou uma série de símbolos no ar, cada um acompanhado por um som peculiar. João sentiu que aquilo era um teste de sua inteligência e intuição.</p>
+        <p>Ele se sentou diante do pedestal, observando os símbolos atentamente. Lembrou-se dos ensinamentos de sua mãe, que dizia que o coração e a mente juntos podiam resolver qualquer mistério.</p>
+        <p>Depois de um tempo, ele percebeu um padrão nos símbolos. Seguindo sua intuição, tocou uma sequência específica no pedestal. As pedras ao redor começaram a brilhar intensamente.</p>
+        <p>Um portal se abriu diante dele, revelando um caminho iluminado por uma luz dourada. A voz retornou: "Você provou sua sabedoria. Siga em frente, guardião da promessa."</p>
+        <p>Com o coração cheio de orgulho e um novo senso de determinação, João entrou no portal, pronto para enfrentar os desafios que o aguardavam.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo5.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo7.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>
